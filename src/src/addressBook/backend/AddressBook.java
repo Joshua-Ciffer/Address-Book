@@ -1,7 +1,7 @@
 package src.addressBook.backend;
 
 /**
- * This interface contains the methods that must be implemented in the address book project.
+ * This interface contains the methods that must be implemented in the Book class.
  *
  * @author Joshua Ciffer
  * @version 03/06/2018
