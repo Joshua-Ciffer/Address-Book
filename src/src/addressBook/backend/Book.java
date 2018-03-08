@@ -14,7 +14,7 @@ public class Book implements AddressBook {
 	/**
 	 * Stores the individual entries.
 	 */
-	public ArrayList<Entry> addressBook;
+	private ArrayList<Entry> addressBook;
 
 	/**
 	 * Constructs a new Book object.
