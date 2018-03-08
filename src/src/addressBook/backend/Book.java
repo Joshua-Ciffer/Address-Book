@@ -14,7 +14,7 @@ public class Book implements AddressBook {
 	/**
 	 * Stores the individual entries.
 	 */
-	private ArrayList<Entry> addressBook;
+	public ArrayList<Entry> addressBook;
 
 	/**
 	 * Constructs a new Book object.
@@ -24,7 +24,7 @@ public class Book implements AddressBook {
 	}
 
 	@Override
-	public boolean addEntry(String name, int phoneNumber, String address) {
+	public boolean addEntry(String name, long phoneNumber, String address) {
 		if (duplicateEntry(name)) {
 			return false;
 		} else {
@@ -36,7 +36,7 @@ public class Book implements AddressBook {
 	@Override
 	public String deleteEntry(int index) {
 		index--;
-		if (((index > 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
+		if (((index >= 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
 			String deletedEntry = addressBook.get(index).toString();
 			addressBook.remove(index);
 			return deletedEntry;
@@ -47,36 +47,36 @@ public class Book implements AddressBook {
 	}
 
 	@Override
-	public void modifyEntry(int index) {
+	public void modifyEntry(int index, Scanner userInput) {
 		index--;
-		if (((index > 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
+		if (((index >= 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
 			do {
-				Scanner tempUserInput = new Scanner(System.in);
 				short userResponse;
 				System.out.println(" (1) Name");
 				System.out.println(" (2) Phone Number");
 				System.out.println(" (3) Address");
 				System.out.print("What do you want to change?: ");
 				try {
-					userResponse = tempUserInput.nextShort();
+					userResponse = userInput.nextShort();
 				} catch (InputMismatchException e) {
-					tempUserInput.next();	// Clears the scanner,
+					userInput.next();	// Clears the scanner,
 					System.out.println("\nEnter one of the given options\n");
 					continue;
 				}
 				switch (userResponse) {
 					case 1: {
-						tempUserInput.nextLine();
+						userInput.nextLine();
 						System.out.print("\nEnter the name: ");
-						addressBook.get(index).setName(tempUserInput.nextLine());
+						addressBook.get(index).setName(userInput.nextLine());
 						break;
 					}
 					case 2: {
 						do {
 							System.out.print("\nEnter the phone number: ");
 							try {
-								addressBook.get(index).setPhoneNumber(tempUserInput.nextInt());
+								addressBook.get(index).setPhoneNumber(userInput.nextLong());
 							} catch (InputMismatchException e) {
+								userInput.next();
 								System.out.println("\nEnter the entry's phone number.\n");
 								continue;
 							}
@@ -85,9 +85,9 @@ public class Book implements AddressBook {
 						break;
 					}
 					case 3: {
-						tempUserInput.nextLine();
+						userInput.nextLine();
 						System.out.print("\nEnter the address: ");
-						addressBook.get(index).setAddress(tempUserInput.nextLine());
+						addressBook.get(index).setAddress(userInput.nextLine());
 						break;
 					}
 					default: {
@@ -95,8 +95,7 @@ public class Book implements AddressBook {
 						continue;
 					}
 				}
-				tempUserInput.close();
-				tempUserInput = null;
+				userInput = null;
 				break;
 			} while (true);
 		} else {
@@ -124,7 +123,7 @@ public class Book implements AddressBook {
 	}
 
 	@Override
-	public Entry findEntry(String name, int phoneNumber, String address) {
+	public Entry findEntry(String name, long phoneNumber, String address) {
 		for (Entry entry : addressBook) {
 			if ((entry.getName().equalsIgnoreCase(name)) && (entry.getPhoneNumber() == phoneNumber) && (entry.getAddress().equalsIgnoreCase(address))) {
 				return entry;
@@ -136,7 +135,7 @@ public class Book implements AddressBook {
 	@Override
 	public void printUser(int index) {
 		index--;
-		if (((index > 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
+		if (((index >= 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
 			System.out.println(addressBook.get(index));
 		} else {
 			System.out.println("\nThis entry does not exist.\n");

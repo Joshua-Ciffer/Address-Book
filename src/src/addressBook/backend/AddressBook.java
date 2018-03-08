@@ -1,4 +1,5 @@
 package src.addressBook.backend;
+import java.util.Scanner;
 
 /**
  * This interface contains the methods that must be implemented in the Book class.
@@ -16,7 +17,7 @@ interface AddressBook {
 	 * @param address - The entry's address.
 	 * @return True - If the entry is successfully added to the address book.
 	 */
-	boolean addEntry(String name, int phoneNumber, String address);
+	boolean addEntry(String name, long phoneNumber, String address);
 
 	/**
 	 * Deletes the current entry.
@@ -30,8 +31,9 @@ interface AddressBook {
 	 * Modifies the current entry.
 	 * 
 	 * @param entry - The entry's index.
+	 * @param userInput - The scanner used for collecting user input.
 	 */
-	void modifyEntry(int entry);
+	void modifyEntry(int entry, Scanner userInput);
 
 	/**
 	 * Determines if there are any duplicate entries.
@@ -57,7 +59,7 @@ interface AddressBook {
 	 * @param address - The user's address.
 	 * @return The Entry object associated with that user.
 	 */
-	Entry findEntry(String name, int phoneNumber, String address);
+	Entry findEntry(String name, long phoneNumber, String address);
 
 	/**
 	 * Prints out the information of the user with the given name.

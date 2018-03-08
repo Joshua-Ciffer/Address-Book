@@ -16,7 +16,7 @@ class Entry implements AddressEntry {
 	/**
 	 * This entry's phone number.
 	 */
-	private int phoneNumber;
+	private long phoneNumber;
 
 	/**
 	 * This entry's address.
@@ -39,7 +39,7 @@ class Entry implements AddressEntry {
 	 * @param number - The entry's phone number.
 	 * @param address - The entry's address.
 	 */
-	public Entry(String name, int phoneNumber, String address) {
+	public Entry(String name, long phoneNumber, String address) {
 		this.name = name;
 		this.phoneNumber = phoneNumber;
 		this.address = address;
@@ -65,7 +65,7 @@ class Entry implements AddressEntry {
 	}
 
 	@Override
-	public int getPhoneNumber() {
+	public long getPhoneNumber() {
 		return phoneNumber;
 	}
 
@@ -80,7 +80,7 @@ class Entry implements AddressEntry {
 	}
 
 	@Override
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 

@@ -20,7 +20,7 @@ interface AddressEntry {
 	 *
 	 * @return The entry's phone number.
 	 */
-	int getPhoneNumber();
+	long getPhoneNumber();
 
 	/**
 	 * Returns the address stored in this entry.
@@ -41,7 +41,7 @@ interface AddressEntry {
 	 *
 	 * @param number - The entry's phone number.
 	 */
-	void setPhoneNumber(int phoneNumber);
+	void setPhoneNumber(long phoneNumber);
 
 	/**
 	 * Sets the address for this entry.

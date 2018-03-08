@@ -41,6 +41,7 @@ public class MainCLI {
 			System.out.println(" (3) Modify Entry");
 			System.out.println(" (4) Find User");
 			System.out.println(" (5) View All Entries");
+			System.out.println(" (6) Exit");
 			System.out.print("Enter an option: ");
 			try {
 				userResponse = userInput.nextInt();
@@ -52,14 +53,14 @@ public class MainCLI {
 			switch (userResponse) {
 				case 1: {	// Add entry.
 					String name, address;
-					int phoneNumber;
+					long phoneNumber;
 					userInput.nextLine();
 					System.out.print("\nEnter the name: ");
 					name = userInput.nextLine();
 					do {
 						System.out.print("Enter the phone number: ");
 						try {
-							phoneNumber = userInput.nextInt();
+							phoneNumber = userInput.nextLong();
 						} catch (InputMismatchException e) {
 							userInput.next();	// Clears the scanner.
 							System.out.println("\nPlease enter the phone number.\n");
@@ -109,7 +110,8 @@ public class MainCLI {
 							System.out.println("\nPlease specify which entry you want to modify.\n");
 							continue;
 						}
-						addressBook.modifyEntry(userResponse);
+						addressBook.modifyEntry(userResponse, userInput);
+						System.out.print("\n");
 						break;
 					} while (true);
 					break;
@@ -120,7 +122,7 @@ public class MainCLI {
 					System.out.print("\nEnter the name of the entry you would like to search for: ");
 					name = userInput.nextLine();
 					if (addressBook.findEntry(name) != null) {
-						System.out.println("Found entry:" + addressBook.findEntry(name));
+						System.out.println("\nFound entry: " + addressBook.findEntry(name) + "\n");
 					} else {
 						System.out.println("\nNo matching entries could be found.\n");
 					}
@@ -131,6 +133,18 @@ public class MainCLI {
 					addressBook.printAll();
 					System.out.print("\n");
 					break;
+				}
+				case 6: {	// Exit.
+					System.exit(0);
+					break;
+				}
+				case 7: {
+					System.out.println(addressBook.addressBook);
+					System.out.println(addressBook.addressBook.size());
+				}
+				default: {	// Error
+					System.out.println("\nEnter one of the given options.\n");
+					continue;
 				}
 			}
 		} while (true);
