@@ -28,6 +28,7 @@ public class Entry implements AddressEntry {
 	 */
 	public Entry() {
 		name = "";
+		number = 0;
 		address = "";
 	}
 
@@ -42,6 +43,20 @@ public class Entry implements AddressEntry {
 		this.name = name;
 		this.number = number;
 		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Name: " + name + "\t-\tNumber: " + number + "\t-\tAddress: " + address;
+	}
+
+	@Override
+	public boolean equals(Object entry) {
+		if (this.toString().equalsIgnoreCase(((Entry)entry).toString())) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
