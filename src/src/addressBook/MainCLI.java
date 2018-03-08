@@ -15,17 +15,17 @@ public class MainCLI {
 	 * Accepts user text input.
 	 */
 	private static Scanner userInput = new Scanner(System.in);
-	
+
 	/**
 	 * Stores user responses to menu prompts.
 	 */
 	private static short userResponse;
-	
+
 	/**
 	 * The Book object that stores address entries.
 	 */
 	private static Book addressBook;
-	
+
 	/**
 	 * Main entry point.
 	 * 
@@ -50,32 +50,76 @@ public class MainCLI {
 			switch (userResponse) {
 				case 1: {	// Add entry.
 					String name, address;
-					int number;
+					int phoneNumber;
 					userInput.nextLine();
 					System.out.print("Enter the name: ");
 					name = userInput.nextLine();
 					do {
-						System.out.print("Enter the number: ");
+						System.out.print("Enter the phone number: ");
 						try {
-							
+							phoneNumber = userInput.nextInt();
 						} catch (InputMismatchException e) {
 							userInput.next();	// Clears the scanner.
 							System.out.println("\nPlease enter the number.\n");
-							
+							continue;
 						}
+						break;
 					} while (true);
+					userInput.nextLine();
+					System.out.print("Enter the address: ");
+					address = userInput.nextLine();
+					addressBook.addEntry(name, phoneNumber, address);
+					System.out.println("\nAdded new entry to the address book.\n");
+					break;
 				}
-				case 2: {
-					
+				case 2: {	// Delete entry.
+					addressBook.printAll();
+					do {
+						System.out.print("\nWhich entry would you like to delete?: ");
+						try {
+							userResponse = userInput.nextShort();
+						} catch (InputMismatchException e) {
+							userInput.next();	// Clears the scanner;
+							System.out.println("\nPlease specify which entry you want to delete.\n");
+							continue;
+						}
+						addressBook.deleteEntry(userResponse);
+						System.out.println("\nDeleted entry.\n");
+						break;
+					} while (true);
+					break;
 				}
-				case 3: {
-					
+				case 3: {	// Modify entry.
+					addressBook.printAll();
+					do {
+						System.out.print("\nWhich entry would you like to modify?: ");
+						try {
+							userResponse = userInput.nextShort();
+						} catch (InputMismatchException e) {
+							userInput.next();	// Clears the scanner;
+							System.out.println("\nPlease specify which entry you want to modify.\n");
+							continue;
+						}
+						addressBook.modifyEntry(userResponse);
+						System.out.println("\nModified entry.\n");
+						break;
+					} while (true);
+					break;
 				}
-				case 4: {
-					
+				case 4: {	// Find user.
+					String name;
+					System.out.print("Enter the name of the entry you would like to search for: ");
+					name = userInput.nextLine();
+					if (addressBook.findEntry(name) != null) {
+						System.out.println("Found entry:" + addressBook.findEntry(name));
+					} else {
+						System.out.println("\nNo matching entries could be found.\n");
+					}
+					break;
 				}
-				case 5: {
-					
+				case 5: {	// View all entries.
+					addressBook.printAll();
+					break;
 				}
 			}
 		} while (true);
