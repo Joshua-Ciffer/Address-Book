@@ -1,12 +1,12 @@
 package src.addressBook.backend;
 
 /**
- * This class represents a single entry in an address book. A single entry can store a name, number, and address.
+ * This class represents a single entry in an address book. A single entry can store a name, phone number, and address.
  * 
  * @author Joshua Ciffer
  * @version 03/07/2018
  */
-public class Entry implements AddressEntry {
+class Entry implements AddressEntry {
 
 	/**
 	 * This entry's name.
@@ -14,9 +14,9 @@ public class Entry implements AddressEntry {
 	private String name;
 
 	/**
-	 * This entry's number.
+	 * This entry's phone number.
 	 */
-	private int number;
+	private int phoneNumber;
 
 	/**
 	 * This entry's address.
@@ -28,7 +28,7 @@ public class Entry implements AddressEntry {
 	 */
 	public Entry() {
 		name = "";
-		number = 0;
+		phoneNumber = 0;
 		address = "";
 	}
 
@@ -36,18 +36,18 @@ public class Entry implements AddressEntry {
 	 * Constructs a new Entry object with specified information.
 	 * 
 	 * @param name - The entry's name.
-	 * @param number - The entry's number.
+	 * @param number - The entry's phone number.
 	 * @param address - The entry's address.
 	 */
-	public Entry(String name, int number, String address) {
+	public Entry(String name, int phoneNumber, String address) {
 		this.name = name;
-		this.number = number;
+		this.phoneNumber = phoneNumber;
 		this.address = address;
 	}
 
 	@Override
 	public String toString() {
-		return "Name: " + name + "\t-\tNumber: " + number + "\t-\tAddress: " + address;
+		return "Name: " + name + "\t-\tPhone Number: " + phoneNumber + "\t-\tAddress: " + address;
 	}
 
 	@Override
@@ -65,8 +65,8 @@ public class Entry implements AddressEntry {
 	}
 
 	@Override
-	public int getNumber() {
-		return number;
+	public int getPhoneNumber() {
+		return phoneNumber;
 	}
 
 	@Override
@@ -80,8 +80,8 @@ public class Entry implements AddressEntry {
 	}
 
 	@Override
-	public void setNumber(int number) {
-		this.number = number;
+	public void setPhoneNumber(int phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	@Override

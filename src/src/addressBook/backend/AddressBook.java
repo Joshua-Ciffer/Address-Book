@@ -12,11 +12,11 @@ interface AddressBook {
 	 * Adds a new entry.
 	 *
 	 * @param name - The entry's name.
-	 * @param number - The entry's number.
+	 * @param number - The entry's phone number.
 	 * @param address - The entry's address.
 	 * @return True - If the entry is successfully added to the address book.
 	 */
-	boolean addEntry(String name, int number, String address);
+	boolean addEntry(String name, int phoneNumber, String address);
 
 	/**
 	 * Deletes the current entry.
@@ -53,11 +53,11 @@ interface AddressBook {
 	 * Locates a specific entry in the address book.
 	 *
 	 * @param name - The user's name.
-	 * @param number - The user's number.
+	 * @param number - The user's phone number.
 	 * @param address - The user's address.
 	 * @return The Entry object associated with that user.
 	 */
-	Entry findUser(String name, int number, String address);
+	Entry findUser(String name, int phoneNumber, String address);
 
 	/**
 	 * Prints out the information of the user with the given name.

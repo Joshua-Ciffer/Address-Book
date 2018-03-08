@@ -16,11 +16,11 @@ interface AddressEntry {
 	String getName();
 
 	/**
-	 * Returns the number stored in this entry.
+	 * Returns the phone number stored in this entry.
 	 *
-	 * @return The entry's number.
+	 * @return The entry's phone number.
 	 */
-	int getNumber();
+	int getPhoneNumber();
 
 	/**
 	 * Returns the address stored in this entry.
@@ -37,11 +37,11 @@ interface AddressEntry {
 	void setName(String name);
 
 	/**
-	 * Sets the number for this entry.
+	 * Sets the phone number for this entry.
 	 *
-	 * @param number - The entry's number.
+	 * @param number - The entry's phone number.
 	 */
-	void setNumber(int number);
+	void setPhoneNumber(int phoneNumber);
 
 	/**
 	 * Sets the address for this entry.

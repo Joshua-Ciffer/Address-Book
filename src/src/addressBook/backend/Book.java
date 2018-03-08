@@ -3,16 +3,25 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
+/**
+ * This class represents one address book that can contain multiple entries.
+ * 
+ * @author Joshua Ciffer
+ * @version 03/07/2018
+ */
 public class Book implements AddressBook {
 
+	/**
+	 * Stores the individual entries.
+	 */
 	private ArrayList<Entry> addressBook = new ArrayList<>();
 
 	@Override
-	public boolean addEntry(String name, int number, String address) {
+	public boolean addEntry(String name, int phoneNumber, String address) {
 		if (duplicateEntry(name)) {
 			return false;
 		} else {
-			addressBook.add(new Entry(name, number, address));
+			addressBook.add(new Entry(name, phoneNumber, address));
 			return true;
 		}
 	}
@@ -36,7 +45,7 @@ public class Book implements AddressBook {
 				Scanner userInput = new Scanner(System.in);
 				short userResponse;
 				System.out.println(" (1) Name");
-				System.out.println(" (2) Number");
+				System.out.println(" (2) Phone Number");
 				System.out.println(" (3) Address");
 				System.out.print("What do you want to change?: ");
 				try {
@@ -55,9 +64,9 @@ public class Book implements AddressBook {
 					}
 					case 2: {
 						do {
-							System.out.print("Enter the number: ");
+							System.out.print("Enter the phone number: ");
 							try {
-								addressBook.get(index).setNumber(userInput.nextInt());
+								addressBook.get(index).setPhoneNumber(userInput.nextInt());
 							} catch (InputMismatchException e) {
 								System.out.println("\nEnter the entry's number.\n");
 								continue;
@@ -106,9 +115,9 @@ public class Book implements AddressBook {
 	}
 
 	@Override
-	public Entry findUser(String name, int number, String address) {
+	public Entry findUser(String name, int phoneNumber, String address) {
 		for (Entry entry : addressBook) {
-			if ((entry.getName().equalsIgnoreCase(name)) && (entry.getNumber() == number) && (entry.getAddress().equalsIgnoreCase(address))) {
+			if ((entry.getName().equalsIgnoreCase(name)) && (entry.getPhoneNumber() == phoneNumber) && (entry.getAddress().equalsIgnoreCase(address))) {
 				return entry;
 			}
 		}
