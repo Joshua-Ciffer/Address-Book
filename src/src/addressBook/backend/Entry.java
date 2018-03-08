@@ -1,46 +1,77 @@
 package src.addressBook.backend;
 
-
+/**
+ * This class represents a single entry in an address book. A single entry can store a name, number, and address.
+ * 
+ * @author Joshua Ciffer
+ * @version 03/07/2018
+ */
 public class Entry implements AddressEntry {
 
+	/**
+	 * This entry's name.
+	 */
+	private String name;
+
+	/**
+	 * This entry's number.
+	 */
+	private int number;
+
+	/**
+	 * This entry's address.
+	 */
+	private String address;
+
+	/**
+	 * Constructs a new Entry object with blank information.
+	 */
 	public Entry() {
-		
+		name = "";
+		address = "";
 	}
-	
+
+	/**
+	 * Constructs a new Entry object with specified information.
+	 * 
+	 * @param name - The entry's name.
+	 * @param number - The entry's number.
+	 * @param address - The entry's address.
+	 */
+	public Entry(String name, int number, String address) {
+		this.name = name;
+		this.number = number;
+		this.address = address;
+	}
+
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return name;
 	}
 
 	@Override
 	public int getNumber() {
-		// TODO Auto-generated method stub
-		return 0;
+		return number;
 	}
 
 	@Override
 	public String getAddress() {
-		// TODO Auto-generated method stub
-		return null;
+		return address;
 	}
 
 	@Override
 	public void setName(String name) {
-		// TODO Auto-generated method stub
-		
+		this.name = name;
 	}
 
 	@Override
 	public void setNumber(int number) {
-		// TODO Auto-generated method stub
-		
+		this.number = number;
 	}
 
 	@Override
 	public void setAddress(String address) {
-		// TODO Auto-generated method stub
-		
+		this.address = address;
 	}
 
 }
