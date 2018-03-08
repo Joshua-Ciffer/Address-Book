@@ -138,10 +138,6 @@ public class MainCLI {
 					System.exit(0);
 					break;
 				}
-				case 7: {
-					System.out.println(addressBook.addressBook);
-					System.out.println(addressBook.addressBook.size());
-				}
 				default: {	// Error
 					System.out.println("\nEnter one of the given options.\n");
 					continue;
