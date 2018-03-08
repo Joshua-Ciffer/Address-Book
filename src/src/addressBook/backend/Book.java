@@ -14,7 +14,14 @@ public class Book implements AddressBook {
 	/**
 	 * Stores the individual entries.
 	 */
-	private ArrayList<Entry> addressBook = new ArrayList<>();
+	private ArrayList<Entry> addressBook;
+	
+	/**
+	 * Constructs a new Book object.
+	 */
+	public Book() {
+		addressBook = new ArrayList<>();
+	}
 
 	@Override
 	public boolean addEntry(String name, int phoneNumber, String address) {
@@ -28,7 +35,7 @@ public class Book implements AddressBook {
 
 	@Override
 	public String deleteEntry(int index) {
-		if ((addressBook.get(index) != null) && ((index > 0) && (index < addressBook.size()))) {
+		if ((addressBook.get(index) != null) || ((index > 0) && (index < addressBook.size()))) {
 			String deletedEntry = addressBook.get(index).toString();
 			addressBook.remove(index);
 			return deletedEntry;
@@ -40,7 +47,7 @@ public class Book implements AddressBook {
 
 	@Override
 	public void modifyEntry(int index) {
-		if ((addressBook.get(index) != null) && ((index > 0) && (index < addressBook.size()))) {
+		if ((addressBook.get(index) != null) || ((index > 0) && (index < addressBook.size()))) {
 			do {
 				Scanner userInput = new Scanner(System.in);
 				short userResponse;
@@ -126,7 +133,7 @@ public class Book implements AddressBook {
 
 	@Override
 	public void printUser(int index) {
-		if ((addressBook.get(index) != null) && ((index > 0) && (index < addressBook.size()))) {
+		if ((addressBook.get(index) != null) || ((index > 0) && (index < addressBook.size()))) {
 			System.out.println(addressBook.get(index));
 		} else {
 			System.out.println("\nThis entry does not exist.\n");

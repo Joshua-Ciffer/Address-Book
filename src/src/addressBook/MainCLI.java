@@ -14,7 +14,7 @@ public class MainCLI {
 	/**
 	 * Accepts user text input.
 	 */
-	private static Scanner userInput = new Scanner(System.in);
+	private static Scanner userInput;
 
 	/**
 	 * Stores user responses to menu prompts.
@@ -32,6 +32,8 @@ public class MainCLI {
 	 * @param args - Command line arguments.
 	 */
 	public static void main(String[] args) {
+		userInput = new Scanner(System.in);
+		addressBook = new Book();
 		do {
 			System.out.println("-----Address Book Main Menu-----");
 			System.out.println(" (1) Add Entry");
@@ -108,7 +110,8 @@ public class MainCLI {
 				}
 				case 4: {	// Find user.
 					String name;
-					System.out.print("Enter the name of the entry you would like to search for: ");
+					userInput.nextLine();
+					System.out.print("\nEnter the name of the entry you would like to search for: ");
 					name = userInput.nextLine();
 					if (addressBook.findEntry(name) != null) {
 						System.out.println("Found entry:" + addressBook.findEntry(name));
@@ -118,7 +121,9 @@ public class MainCLI {
 					break;
 				}
 				case 5: {	// View all entries.
+					System.out.print("\n");
 					addressBook.printAll();
+					System.out.print("\n");
 					break;
 				}
 			}
