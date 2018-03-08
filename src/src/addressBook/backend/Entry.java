@@ -47,7 +47,7 @@ class Entry implements AddressEntry {
 
 	@Override
 	public String toString() {
-		return "Name: " + name + "\t-\tPhone Number: " + phoneNumber + "\t-\tAddress: " + address;
+		return "Name: " + name + "    -    Phone Number: " + phoneNumber + "    -    Address: " + address;
 	}
 
 	@Override

@@ -15,7 +15,7 @@ public class Book implements AddressBook {
 	 * Stores the individual entries.
 	 */
 	private ArrayList<Entry> addressBook;
-	
+
 	/**
 	 * Constructs a new Book object.
 	 */
@@ -35,7 +35,8 @@ public class Book implements AddressBook {
 
 	@Override
 	public String deleteEntry(int index) {
-		if ((addressBook.get(index) != null) || ((index > 0) && (index < addressBook.size()))) {
+		index--;
+		if (((index > 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
 			String deletedEntry = addressBook.get(index).toString();
 			addressBook.remove(index);
 			return deletedEntry;
@@ -47,35 +48,36 @@ public class Book implements AddressBook {
 
 	@Override
 	public void modifyEntry(int index) {
-		if ((addressBook.get(index) != null) || ((index > 0) && (index < addressBook.size()))) {
+		index--;
+		if (((index > 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
 			do {
-				Scanner userInput = new Scanner(System.in);
+				Scanner tempUserInput = new Scanner(System.in);
 				short userResponse;
 				System.out.println(" (1) Name");
 				System.out.println(" (2) Phone Number");
 				System.out.println(" (3) Address");
 				System.out.print("What do you want to change?: ");
 				try {
-					userResponse = userInput.nextShort();
+					userResponse = tempUserInput.nextShort();
 				} catch (InputMismatchException e) {
-					userInput.next();	// Clears the scanner,
+					tempUserInput.next();	// Clears the scanner,
 					System.out.println("\nEnter one of the given options\n");
 					continue;
 				}
 				switch (userResponse) {
 					case 1: {
-						userInput.nextLine();
-						System.out.print("Enter the name: ");
-						addressBook.get(index).setName(userInput.nextLine());
+						tempUserInput.nextLine();
+						System.out.print("\nEnter the name: ");
+						addressBook.get(index).setName(tempUserInput.nextLine());
 						break;
 					}
 					case 2: {
 						do {
-							System.out.print("Enter the phone number: ");
+							System.out.print("\nEnter the phone number: ");
 							try {
-								addressBook.get(index).setPhoneNumber(userInput.nextInt());
+								addressBook.get(index).setPhoneNumber(tempUserInput.nextInt());
 							} catch (InputMismatchException e) {
-								System.out.println("\nEnter the entry's number.\n");
+								System.out.println("\nEnter the entry's phone number.\n");
 								continue;
 							}
 							break;
@@ -83,9 +85,9 @@ public class Book implements AddressBook {
 						break;
 					}
 					case 3: {
-						userInput.nextLine();
-						System.out.print("Enter the address: ");
-						addressBook.get(index).setAddress(userInput.nextLine());
+						tempUserInput.nextLine();
+						System.out.print("\nEnter the address: ");
+						addressBook.get(index).setAddress(tempUserInput.nextLine());
 						break;
 					}
 					default: {
@@ -93,8 +95,8 @@ public class Book implements AddressBook {
 						continue;
 					}
 				}
-				userInput.close();
-				userInput = null;
+				tempUserInput.close();
+				tempUserInput = null;
 				break;
 			} while (true);
 		} else {
@@ -133,7 +135,8 @@ public class Book implements AddressBook {
 
 	@Override
 	public void printUser(int index) {
-		if ((addressBook.get(index) != null) || ((index > 0) && (index < addressBook.size()))) {
+		index--;
+		if (((index > 0) && (index < addressBook.size())) && (addressBook.get(index) != null)) {
 			System.out.println(addressBook.get(index));
 		} else {
 			System.out.println("\nThis entry does not exist.\n");
@@ -144,7 +147,7 @@ public class Book implements AddressBook {
 	public void printAll() {
 		for (int i = 0; i < addressBook.size(); i++) {
 			if (addressBook.get(i) != null) {
-				System.out.println("#" + i + ": " + addressBook.get(i));
+				System.out.println("#" + (i + 1) + ": " + addressBook.get(i));
 			}
 		}
 	}
