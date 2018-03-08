@@ -47,7 +47,7 @@ interface AddressBook {
 	 * @param name - The user's name.
 	 * @return The Entry object associated with that user.
 	 */
-	Entry findUser(String name);
+	Entry findEntry(String name);
 
 	/**
 	 * Locates a specific entry in the address book.
@@ -57,7 +57,7 @@ interface AddressBook {
 	 * @param address - The user's address.
 	 * @return The Entry object associated with that user.
 	 */
-	Entry findUser(String name, int phoneNumber, String address);
+	Entry findEntry(String name, int phoneNumber, String address);
 
 	/**
 	 * Prints out the information of the user with the given name.

@@ -97,7 +97,7 @@ public class Book implements AddressBook {
 
 	@Override
 	public boolean duplicateEntry(String name) {
-		if (findUser(name) != null) {
+		if (findEntry(name) != null) {
 			return true;
 		} else {
 			return false;
@@ -105,7 +105,7 @@ public class Book implements AddressBook {
 	}
 
 	@Override
-	public Entry findUser(String name) {
+	public Entry findEntry(String name) {
 		for (Entry entry : addressBook) {
 			if (entry.getName().equalsIgnoreCase(name)) {
 				return entry;
@@ -115,7 +115,7 @@ public class Book implements AddressBook {
 	}
 
 	@Override
-	public Entry findUser(String name, int phoneNumber, String address) {
+	public Entry findEntry(String name, int phoneNumber, String address) {
 		for (Entry entry : addressBook) {
 			if ((entry.getName().equalsIgnoreCase(name)) && (entry.getPhoneNumber() == phoneNumber) && (entry.getAddress().equalsIgnoreCase(address))) {
 				return entry;
