@@ -4,21 +4,21 @@ package src.addressBook.backend;
  * This interface contains the methods that must be implemented in the Book class.
  *
  * @author Joshua Ciffer
- * @version 03/06/2018
+ * @version 03/07/2018
  */
 interface AddressBook {
   
  /**
   * Adds a new entry.
   *
-  * @returns True - If the entry is successfully added to the address book.
+  * @return True - If the entry is successfully added to the address book.
   */
   boolean addEntry();
   
   /**
    * Deletes the current entry.
    *
-   * @returns The info from the deleted entry.
+   * @return The info from the deleted entry.
    */
   String deleteEntry();
   
@@ -30,7 +30,7 @@ interface AddressBook {
   /**
    * Determines if there are any duplicate entries.
    *
-   * @returns True - If more than one of the given entry exists.
+   * @return True - If more than one of the given entry exists.
    */
   boolean duplicateEntry();
   
@@ -40,7 +40,7 @@ interface AddressBook {
    * @param name - The user's name.
    * @param number - The user's number.
    * @param address - The user's address.
-   * @returns The Entry object associated with that user.
+   * @return The Entry object associated with that user.
    */
   Entry findUser(String name, int number, String address);
   

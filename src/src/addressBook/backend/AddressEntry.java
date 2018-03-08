@@ -4,7 +4,7 @@ package src.addressBook.backend;
  * This interface contains methods required to be implemented in the Entry class.
  *
  * @author Joshua Ciffer
- * @version 03/06/2018
+ * @version 03/07/2018
  */
 interface AddressEntry {
 
@@ -18,14 +18,14 @@ interface AddressEntry {
   /**
    * Returns the number stored in this entry.
    *
-   * @returns The entry's number.
+   * @return The entry's number.
    */
   int getNumber();
   
   /**
    * Returns the address stored in this entry.
    *
-   * @returns The entry's address.
+   * @return The entry's address.
    */
   String getAddress();
   
