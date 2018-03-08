@@ -40,9 +40,9 @@ interface AddressBook {
    * @param name - The user's name.
    * @param number - The user's number.
    * @param address - The user's address.
-   * @returns The Address object associated with that user.
+   * @returns The Entry object associated with that user.
    */
-  Address findUser(String name, int number, String address);
+  Entry findUser(String name, int number, String address);
   
   /**
    * Prints out the information of the user with the given name.

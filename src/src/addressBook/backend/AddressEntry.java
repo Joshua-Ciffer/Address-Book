@@ -20,7 +20,7 @@ interface AddressEntry {
    *
    * @returns The entry's number.
    */
-  int getNumber():
+  int getNumber();
   
   /**
    * Returns the address stored in this entry.
