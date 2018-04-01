@@ -13,7 +13,7 @@ interface AddressBook {
 	 * Adds a new entry.
 	 *
 	 * @param name - The entry's name.
-	 * @param number - The entry's phone number.
+	 * @param phoneNumber - The entry's phone number.
 	 * @param address - The entry's address.
 	 * @return True - If the entry is successfully added to the address book.
 	 */
@@ -55,7 +55,7 @@ interface AddressBook {
 	 * Locates a specific entry in the address book.
 	 *
 	 * @param name - The user's name.
-	 * @param number - The user's phone number.
+	 * @param phoneNumber - The user's phone number.
 	 * @param address - The user's address.
 	 * @return The Entry object associated with that user.
 	 */

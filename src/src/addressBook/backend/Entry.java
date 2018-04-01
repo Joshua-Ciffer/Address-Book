@@ -36,7 +36,7 @@ class Entry implements AddressEntry {
 	 * Constructs a new Entry object with specified information.
 	 * 
 	 * @param name - The entry's name.
-	 * @param number - The entry's phone number.
+	 * @param phoneNumber - The entry's phone number.
 	 * @param address - The entry's address.
 	 */
 	public Entry(String name, long phoneNumber, String address) {
